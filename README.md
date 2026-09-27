@@ -1,6 +1,7 @@
-# Yohanes Alemu portfolio
+# Yohanes Alemu portfolio (v2, "Canvas")
 
-Vite + TypeScript, GSAP ScrollTrigger for scroll choreography, Lenis for smooth scroll. No framework, no WebGL.
+Vite + TypeScript, GSAP (ScrollTrigger, Flip), Lenis. No framework, no WebGL.
+Branch `main` holds v1 (dark, scroll-driven). This branch is v2 (light, interaction-driven).
 
 ```bash
 npm install
@@ -8,30 +9,31 @@ npm run dev      # http://localhost:5173
 npm run build    # typecheck + production build into dist/
 ```
 
-## Where things live
+## What visitors can do
 
-| What | Where |
-|---|---|
-| All text content, projects, skills, contact links | `src/data.ts` |
-| Project cover images (1600x1000 + 800x500 `-sm`) | `public/work/` |
-| Page structure | `index.html` |
-| Scroll choreography, loader, nav, tabs | `src/main.ts` |
-| Rendering of data-driven sections | `src/render.ts` |
-| Styles | `src/styles/main.css`, `src/styles/logo.css` |
-| Logo kit (SVGs, favicon, animated mark) | `brand/` |
+| Interaction | Where | Code |
+|---|---|---|
+| Drag a Figma-like canvas of project frames (inertia, depth layers, mouse parallax) | Hero | `src/canvas.ts` |
+| Press **O** (or the nav button) to see the whole site as a wireframe | Everywhere | `main.ts`, `.outline` in CSS |
+| Filter work by type, with layout animation | Work | `main.ts` (GSAP Flip) |
+| Open a case study: the image grows into the page (`/work/:slug`) | Work, hero frames | `src/router.ts` |
+| Change design tokens and watch the component and CSS update | Playground | `src/playground.ts` |
+| Filter a herd and see the API request, JSON and screen | API demo | `src/api.ts` |
+| Build a project brief that becomes a ready-to-send email | Contact | `src/brief.ts` |
 
-`src/logo.ts` and `src/styles/logo.css` are generated from the brand kit; don't edit the SVG paths by hand.
+## Content
 
-## Before launch (placeholders to replace)
+All copy, projects, case studies and links live in `src/data.ts`.
+Images live in `public/work/` as `name.webp` (1600x1000) and `name-sm.webp` (800x500).
 
-- [ ] Project covers in `public/work/` are temporary title cards. Replace with real screenshots, same file names.
-- [ ] Project summaries, roles and years in `src/data.ts` are drafts.
-- [ ] Email and social links in `src/data.ts` are dummies.
-- [ ] Cowsville demo data in `src/render.ts` is sample data.
+## Before launch
+
+- [ ] Hawi Software images are real screenshots of hawisoftware.com. Every other project uses openly licensed stand-in photos from Wikimedia Commons (credited in the footer). Replace them with real screens, then remove their entries from `credits` in `src/data.ts`.
+- [ ] Case study text, years and budgets are drafts (`src/data.ts`, `src/brief.ts`).
+- [ ] Email and social links are placeholders.
+- [ ] Case study URLs (`/work/hawi`) need an SPA fallback on the host: every path should serve `index.html`. On Netlify add `/* /index.html 200` to `public/_redirects`; on Vercel add a rewrite.
 
 ## Motion rules
 
-- Only `transform` and `opacity` are animated.
-- Desktop (> 900px) gets the canvas zoom, docking logo, sticky project stack and backend peel.
-- Phones get the same content without pinned sections.
-- `prefers-reduced-motion: reduce` turns off smooth scroll, pins, the loader and all scrubbed animation.
+- Only `transform` and `opacity` animate. The canvas loop stops when the hero is off screen.
+- `prefers-reduced-motion: reduce` turns off smooth scroll, parallax, inertia, the loader and reveals. Every interaction still works.
