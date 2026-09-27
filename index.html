@@ -3,116 +3,103 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Yohanes Alemu, UI designer and developer</title>
+    <title>Yohanes Alemu, designer who builds</title>
     <meta name="description" content="Yohanes Alemu designs interfaces in Figma and builds them: motion-rich front ends and the Django systems behind them." />
-    <meta name="theme-color" content="#ecebe7" />
+    <meta name="theme-color" content="#ff5410" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <meta property="og:title" content="Yohanes Alemu, UI designer and developer" />
-    <meta property="og:description" content="Figma files, motion-rich front ends and the Django APIs behind them." />
+    <meta property="og:title" content="Yohanes Alemu, designer who builds" />
+    <meta property="og:description" content="Interfaces in Figma, front ends with motion, Django systems behind them." />
     <meta property="og:type" content="website" />
   </head>
   <body>
     <a class="skip" href="#work">Skip to work</a>
 
     <div class="loader" aria-hidden="true">
-      <div class="loader-mark" data-logo></div>
-      <div class="loader-count"><span data-count>0</span></div>
+      <div class="loader-mark" data-logo="loader"></div>
+      <span class="loader-count" data-count>0</span>
     </div>
 
     <header class="nav">
-      <a class="ya-logo nav-logo" href="/" aria-label="Yohanes Alemu, home" data-logo data-home></a>
-      <nav class="nav-links" aria-label="Sections">
-        <a href="#work">Work</a>
-        <a href="#playground">Playground</a>
-        <a href="#api">API demo</a>
+      <a class="ya-logo nav-logo" href="/" aria-label="Yohanes Alemu, home" data-logo="nav"></a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#work" class="roll"><span data-text="Work">Work</span></a>
+        <a href="#about" class="roll"><span data-text="About">About</span></a>
+        <a href="#contact" class="roll"><span data-text="Contact">Contact</span></a>
       </nav>
-      <button class="outline-btn" type="button" aria-pressed="false" data-outline title="Outline view (O)">
-        <span data-icon="frame-corners"></span><span class="outline-label">Outline</span><kbd>O</kbd>
-      </button>
-      <a class="btn btn-primary nav-cta" href="#contact">Start a project</a>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
     </header>
 
-    <div class="menu" id="menu" hidden>
-      <a href="#work">Work</a>
-      <a href="#playground">Playground</a>
-      <a href="#api">API demo</a>
-      <a href="#contact">Start a project</a>
-    </div>
-
-    <div class="rail" aria-hidden="true"><span class="rail-fill"></span></div>
-
-    <main id="home" data-layer="Page / Home">
-      <!-- Hero: a draggable design canvas. Frames sit on three depth layers. -->
-      <section class="hero" id="top" data-layer="Hero">
-        <div class="viewport" data-viewport>
-          <div class="world" data-world></div>
-        </div>
-        <div class="hero-panel" data-layer="Frame / Intro">
-          <h1 class="hero-title">
-            <span class="line"><span>I design it in Figma.</span></span>
-            <span class="line"><span>Then I <em>build</em> it.</span></span>
-          </h1>
-          <p class="hero-sub">Yohanes Alemu. UI designer and full-stack developer: Figma files, motion-rich front ends, and the Django APIs behind them.</p>
-          <div class="hero-ctas">
-            <a class="btn btn-primary" href="#contact">Start a project</a>
-            <a class="btn btn-ghost" href="#work">See the work</a>
+    <main id="home">
+      <!-- One pinned scene: the logo leaves the nav, takes the centre, then becomes the viewfinder for the work. -->
+      <section class="scene" id="top" aria-label="Introduction and selected work">
+        <div class="scene-pin">
+          <div class="hero">
+            <h1 class="name" aria-label="Yohanes Alemu">
+              <span class="row r1" data-vtype aria-hidden="true">Yohanes</span>
+              <span class="row r2" data-vtype aria-hidden="true">Alemu</span>
+            </h1>
+            <div class="hero-meta">
+              <p class="hero-sub">Designer who builds. Interfaces in Figma, front ends with motion, and the Django systems behind them.</p>
+              <p class="hero-ethi" lang="am">ዮሐንስ አለሙ</p>
+            </div>
           </div>
-        </div>
-        <div class="toolbar" role="toolbar" aria-label="Canvas">
-          <span class="tool-hint"><span data-icon="hand-grabbing"></span>Drag the canvas</span>
-          <button type="button" class="tool" data-reset><span data-icon="arrows-in"></span>Reset view</button>
+
+          <div class="vf-names" aria-hidden="true" data-vf-names></div>
+          <div class="vf-media" aria-hidden="true" data-vf-media></div>
+          <button class="frame-box" type="button" data-frame tabindex="-1" aria-hidden="true">
+            <i class="fc fc1"></i><i class="fc fc2"></i><i class="fc fc3"></i><i class="fc fc4"></i>
+            <span class="frame-label" data-frame-label>Frame 01</span>
+          </button>
+          <div class="scene-glyph" data-logo="scene" aria-hidden="true"></div>
+          <i class="scene-dot" aria-hidden="true"></i>
+          <div class="vf-meta" data-vf-meta></div>
         </div>
       </section>
 
-      <section class="work" id="work" data-layer="Work">
-        <div class="work-head">
-          <h2>Work</h2>
-          <div class="filters" role="group" aria-label="Filter projects" data-filters></div>
-        </div>
-        <div class="grid" data-grid></div>
+      <!-- Accessible index of the work. Visually hidden while the viewfinder shows it. -->
+      <section class="work-index" id="work" aria-labelledby="work-title">
+        <h2 id="work-title" class="sr-only">Selected work</h2>
+        <ol data-work-list></ol>
       </section>
 
-      <section class="play" id="playground" data-layer="Playground">
-        <div class="sec-head">
-          <h2>Design it, then build it</h2>
-          <p>Change the design tokens and watch the component and its code update together. This is how I hand designs to code: as a system, not a picture.</p>
+      <section class="about" id="about">
+        <div class="about-mark">
+          <a class="ya-logo about-logo" href="#about" aria-label="The mark: hover to switch between Ge'ez and Latin" data-logo="about"></a>
+          <p class="about-caption"><span lang="am">ዮ</span> Ge'ez, <span>yo.</span> Latin. Hover to switch.</p>
         </div>
-        <div class="play-ui" data-play></div>
+        <div class="about-copy">
+          <h2 class="about-title">One mark, two alphabets.</h2>
+          <p><span lang="am">ዮ</span> is “yo”, the first sound of Yohanes, written in Ge'ez, the script I grew up reading. Hover the mark and it turns into Latin. Same idea, two alphabets.</p>
+          <p>That is how I work. I design interfaces in Figma, then I build them myself: motion-rich front ends and the Django systems behind them. Nothing gets lost between design and code.</p>
+          <p>I have shipped enterprise platforms with teams, including two government systems I can't show here, and plenty on my own.</p>
+        </div>
       </section>
 
-      <section class="api" id="api" data-layer="API demo">
-        <div class="sec-head">
-          <h2>The system behind the screen</h2>
-          <p>Cowsville is a farm management API I built with Django REST Framework. Filter the herd and see the request, the JSON and the screen it feeds.</p>
-        </div>
-        <div class="api-ui" data-api></div>
-        <p class="nda"><span data-icon="lock-simple"></span>Also built with teams: two government platforms. Details are under NDA.</p>
+      <section class="skills" aria-labelledby="skills-title">
+        <h2 id="skills-title" class="skills-title">What I do</h2>
+        <div class="skill-rows" data-skills></div>
       </section>
 
-      <section class="contact" id="contact" data-layer="Contact">
-        <div class="contact-head">
-          <h2>Start a project</h2>
-          <p>Pick what you need and I'll get a clear brief in my inbox. I reply within two working days.</p>
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="say">
+          <span class="say-word">Say</span>
+          <span class="ya-logo say-logo" data-logo="say" role="img" aria-label="yo"></span>
+        </h2>
+        <p class="contact-sub">Tell me what you're building. I reply within two working days.</p>
+        <div class="contact-actions">
+          <a class="mail" data-mail href="#"><span data-email></span></a>
+          <button class="copy" type="button" data-copy>Copy email</button>
+          <span class="copy-status" role="status" data-copy-status></span>
         </div>
-        <form class="brief" data-brief novalidate></form>
+        <footer class="foot">
+          <ul class="socials" data-socials></ul>
+          <span class="foot-note">© 2026 Yohanes Alemu</span>
+        </footer>
       </section>
     </main>
 
-    <!-- Case study view, filled by the router for /work/:slug -->
-    <article class="case" id="case" hidden data-layer="Page / Case study" tabindex="-1"></article>
+    <article class="case" id="case" hidden tabindex="-1"></article>
 
-    <footer class="foot">
-      <div class="foot-row">
-        <span>© 2026 Yohanes Alemu</span>
-        <ul class="socials" data-socials></ul>
-      </div>
-      <details class="credits">
-        <summary>Photo credits</summary>
-        <ul data-credits></ul>
-      </details>
-    </footer>
-
+    <div class="grain" aria-hidden="true"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

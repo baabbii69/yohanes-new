@@ -1,7 +1,9 @@
-# Yohanes Alemu portfolio (v2, "Canvas")
+# Yohanes Alemu portfolio (v3, "Frame")
 
-Vite + TypeScript, GSAP (ScrollTrigger, Flip), Lenis. No framework, no WebGL.
-Branch `main` holds v1 (dark, scroll-driven). This branch is v2 (light, interaction-driven).
+The Frame + ዮ logo is the protagonist. It leaves the nav, takes the centre of the screen,
+swaps ዮ for "yo.", then opens up into the viewfinder the work is seen through.
+
+Vite + TypeScript, GSAP ScrollTrigger, Lenis. No framework, no WebGL.
 
 ```bash
 npm install
@@ -9,31 +11,40 @@ npm run dev      # http://localhost:5173
 npm run build    # typecheck + production build into dist/
 ```
 
-## What visitors can do
+Branches: `main` = v1 (dark), `v2-canvas` = v2 (light canvas), `v3-frame` = this one.
 
-| Interaction | Where | Code |
+## The experience
+
+| Moment | What happens | Code |
 |---|---|---|
-| Drag a Figma-like canvas of project frames (inertia, depth layers, mouse parallax) | Hero | `src/canvas.ts` |
-| Press **O** (or the nav button) to see the whole site as a wireframe | Everywhere | `main.ts`, `.outline` in CSS |
-| Filter work by type, with layout animation | Work | `main.ts` (GSAP Flip) |
-| Open a case study: the image grows into the page (`/work/:slug`) | Work, hero frames | `src/router.ts` |
-| Change design tokens and watch the component and CSS update | Playground | `src/playground.ts` |
-| Filter a herd and see the API request, JSON and screen | API demo | `src/api.ts` |
-| Build a project brief that becomes a ready-to-send email | Contact | `src/brief.ts` |
+| Loader | The mark draws itself on orange and flies into the nav | `src/main.ts` |
+| Hero | Giant name; letters near the cursor turn light and wide (weight and width axes) | `src/hero-type.ts` |
+| Scroll 1 | Logo leaves the nav, grows to the centre, orange turns to ink, the name splits away | `src/scene.ts` |
+| Scroll 2 | ዮ rolls out, "yo." rolls in | `src/scene.ts` |
+| Scroll 3 | The frame widens into a viewfinder; projects slide through it, snapping one at a time; the logo's dot tracks progress | `src/scene.ts` |
+| Case study | The image in the viewfinder grows into the case study page (`/work/:slug`) | `src/router.ts` |
+| About | The story of the mark; hover or tap it to swap alphabets | `src/sections.ts` |
+| What I do | Giant rows; hover widens the word and the logo's corners select it | `src/sections.ts` |
+| Contact | "Say yo." with the mark swapping on its own | `src/sections.ts` |
+| Favicon | Rolls between ዮ and yo. every 4 seconds | `src/brand/favicon.ts` |
 
-## Content
+## Content and images
 
-All copy, projects, case studies and links live in `src/data.ts`.
-Images live in `public/work/` as `name.webp` (1600x1000) and `name-sm.webp` (800x500).
+- Copy, projects and links: `src/data.ts`.
+- Covers: `public/work/<slug>.webp` (2000x1250) and `<slug>-sm.webp` (1000x625).
+  Hawi uses a real screenshot of hawisoftware.com. The others are art-directed brand covers
+  generated from each project's idea (biscuit perforations, auction countdown, timetable,
+  school network, herd in a field). Replace any of them with real screens, same file names.
+- Logo paths are generated from the brand kit (`src/brand/paths.ts`); don't hand-edit them.
 
 ## Before launch
 
-- [ ] Hawi Software images are real screenshots of hawisoftware.com. Every other project uses openly licensed stand-in photos from Wikimedia Commons (credited in the footer). Replace them with real screens, then remove their entries from `credits` in `src/data.ts`.
-- [ ] Case study text, years and budgets are drafts (`src/data.ts`, `src/brief.ts`).
+- [ ] Case study text and years in `src/data.ts` are drafts.
 - [ ] Email and social links are placeholders.
-- [ ] Case study URLs (`/work/hawi`) need an SPA fallback on the host: every path should serve `index.html`. On Netlify add `/* /index.html 200` to `public/_redirects`; on Vercel add a rewrite.
+- [ ] Hosting needs an SPA fallback for `/work/*` (`public/_redirects` for Netlify, `vercel.json` for Vercel are included).
 
-## Motion rules
+## Performance and accessibility
 
-- Only `transform` and `opacity` animate. The canvas loop stops when the hero is off screen.
-- `prefers-reduced-motion: reduce` turns off smooth scroll, parallax, inertia, the loader and reveals. Every interaction still works.
+- Only transforms, opacity and one clip-path animate. The whole scene is drawn from one scroll value.
+- `prefers-reduced-motion: reduce` gives a static page: no pinning, no smooth scroll, a plain list of work. The favicon swaps without animating.
+- Keyboard: a visually hidden work index moves the viewfinder to the focused project.

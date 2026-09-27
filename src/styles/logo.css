@@ -1,5 +1,5 @@
 /* Hover swap: ዮ rolls out, "yo." rolls in. Source: brand/ya-logo-swap.html */
-.ya-logo{--ya-accent:#EE5A10;--ya-ease:cubic-bezier(.7,0,.2,1);display:inline-block;width:48px;height:48px;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ya-logo{--ya-ease:cubic-bezier(.7,0,.2,1);display:inline-block;width:48px;height:48px;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .ya-logo svg{display:block;width:100%;height:100%;overflow:visible}
 .ya-logo .ya-yo,.ya-logo .ya-y,.ya-logo .ya-o,.ya-logo .ya-dot,.ya-logo .ya-c{transition:transform .7s var(--ya-ease),opacity .5s var(--ya-ease)}
 /* resting state: Ge'ez */
@@ -24,3 +24,4 @@
   .ya-logo:hover .ya-yo,.ya-logo.is-latin .ya-yo{opacity:0}
   .ya-logo:hover .ya-y,.ya-logo:hover .ya-o,.ya-logo.is-latin .ya-y,.ya-logo.is-latin .ya-o{opacity:1}
 }
+.ya-logo{--ya-accent:#ff5410}
