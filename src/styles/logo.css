@@ -1,0 +1,26 @@
+/* Hover swap: ዮ rolls out, "yo." rolls in. Source: brand/ya-logo-swap.html */
+.ya-logo{--ya-accent:#EE5A10;--ya-ease:cubic-bezier(.7,0,.2,1);display:inline-block;width:48px;height:48px;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ya-logo svg{display:block;width:100%;height:100%;overflow:visible}
+.ya-logo .ya-yo,.ya-logo .ya-y,.ya-logo .ya-o,.ya-logo .ya-dot,.ya-logo .ya-c{transition:transform .7s var(--ya-ease),opacity .5s var(--ya-ease)}
+/* resting state: Ge'ez */
+.ya-logo .ya-yo{transition-delay:.12s}
+.ya-logo .ya-y{transform:translateY(62px)}
+.ya-logo .ya-o{transform:translateY(62px);transition-delay:0s}
+.ya-logo .ya-y{transition-delay:.04s}
+/* swapped state: Latin (hover, keyboard focus, or .is-latin from JS) */
+.ya-logo:hover .ya-yo,.ya-logo:focus-visible .ya-yo,.ya-logo.is-latin .ya-yo{transform:translateY(-74px);transition-delay:0s}
+.ya-logo:hover .ya-y,.ya-logo:focus-visible .ya-y,.ya-logo.is-latin .ya-y{transform:none;transition-delay:.08s}
+.ya-logo:hover .ya-o,.ya-logo:focus-visible .ya-o,.ya-logo.is-latin .ya-o{transform:none;transition-delay:.14s}
+.ya-logo:hover .ya-dot,.ya-logo:focus-visible .ya-dot,.ya-logo.is-latin .ya-dot{transform:translate(4px,-13px);transition-timing-function:cubic-bezier(.3,1.5,.5,1);transition-delay:.18s}
+/* the frame "breathes" inward while the content swaps */
+.ya-logo:hover .ya-c1,.ya-logo.is-latin .ya-c1{transform:translate(3px,3px)}
+.ya-logo:hover .ya-c2,.ya-logo.is-latin .ya-c2{transform:translate(-3px,3px)}
+.ya-logo:hover .ya-c3,.ya-logo.is-latin .ya-c3{transform:translate(3px,-3px)}
+.ya-logo:hover .ya-c4,.ya-logo.is-latin .ya-c4{transform:translate(-3px,-3px)}
+.ya-logo:focus-visible{outline:2px solid var(--ya-accent);outline-offset:4px;border-radius:2px}
+@media (prefers-reduced-motion:reduce){
+  .ya-logo .ya-yo,.ya-logo .ya-y,.ya-logo .ya-o,.ya-logo .ya-dot,.ya-logo .ya-c{transition:opacity .2s linear!important;transform:none!important}
+  .ya-logo .ya-y,.ya-logo .ya-o{opacity:0}
+  .ya-logo:hover .ya-yo,.ya-logo.is-latin .ya-yo{opacity:0}
+  .ya-logo:hover .ya-y,.ya-logo:hover .ya-o,.ya-logo.is-latin .ya-y,.ya-logo.is-latin .ya-o{opacity:1}
+}

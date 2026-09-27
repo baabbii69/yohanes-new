@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Yohanes Alemu, UI designer and developer</title>
+    <meta name="description" content="Yohanes Alemu designs interfaces in Figma and builds them: motion-rich front ends and the Django systems behind them." />
+    <meta name="theme-color" content="#141210" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content="Yohanes Alemu, UI designer and developer" />
+    <meta property="og:description" content="Figma files, motion-rich front ends and the Django APIs behind them." />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <a class="skip" href="#work">Skip to work</a>
+
+    <div class="loader" aria-hidden="true">
+      <div class="loader-mark" data-logo></div>
+      <div class="loader-count"><span data-count>0</span></div>
+    </div>
+
+    <header class="nav">
+      <a class="ya-logo nav-logo" href="#top" aria-label="Yohanes Alemu, home" data-logo></a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#backend">Backend</a>
+      </nav>
+      <a class="btn btn-primary nav-cta" href="#contact">Start a project</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    </header>
+
+    <div class="menu" id="menu" hidden>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#backend">Backend</a>
+      <a href="#contact">Start a project</a>
+    </div>
+
+    <div class="rail" aria-hidden="true"><span class="rail-fill"></span></div>
+
+    <main>
+      <!-- Hero: a Figma-style canvas. The home frame is selected; scrolling zooms out to the other frames. -->
+      <section class="hero" id="top">
+        <div class="stage">
+          <div class="canvas">
+            <article class="board board-hero">
+              <span class="board-label">Home</span>
+              <span class="handle h1"></span><span class="handle h2"></span><span class="handle h3"></span><span class="handle h4"></span>
+              <span class="size-tag" data-size>1440 × 900</span>
+              <div class="hero-copy">
+                <h1 class="hero-title">
+                  <span class="line"><span>I design it in Figma.</span></span>
+                  <span class="line"><span>Then I <em>build</em> it.</span></span>
+                </h1>
+                <p class="hero-sub">Yohanes Alemu. UI designer and full-stack developer: Figma files, motion-rich front ends, and the Django APIs behind them.</p>
+                <div class="hero-ctas">
+                  <a class="btn btn-primary" href="#contact">Start a project</a>
+                  <a class="btn btn-ghost" href="#work">See the work</a>
+                </div>
+              </div>
+            </article>
+            <div class="boards" data-boards></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro" aria-label="About">
+        <div class="intro-mark" data-logo-static aria-hidden="true"></div>
+        <p class="intro-text" data-words>I'm Yohanes. I design interfaces in Figma, build them with motion that respects your laptop, and write the Django that keeps them running. One person from first sketch to final endpoint.</p>
+      </section>
+
+      <section class="work" id="work">
+        <header class="work-head">
+          <h2>Selected work</h2>
+          <p>Five recent projects across web, mobile and dashboards.</p>
+        </header>
+        <div class="stack" data-projects></div>
+      </section>
+
+      <section class="skills" id="skills">
+        <h2 class="skills-title">What I bring to a project</h2>
+        <div class="skills-ui">
+          <div class="layers" role="tablist" aria-label="Skills" data-layers></div>
+          <div class="layer-canvas" data-panels></div>
+        </div>
+      </section>
+
+      <section class="backend" id="backend">
+        <div class="backend-pin">
+          <div class="backend-copy">
+            <h2>Beneath the interface</h2>
+            <p>Cowsville is a farm management system I built with Django REST Framework. Farmers track their herds, vets log treatments and inseminators plan visits, all through one API.</p>
+            <div class="nda">
+              <span class="nda-icon" data-icon="lock-simple"></span>
+              <p>Also built with teams: two government platforms. Details are under NDA, <span class="redact">████████</span> and <span class="redact">██████</span>.</p>
+            </div>
+          </div>
+          <div class="layers-3d">
+            <div class="code-layer" data-code></div>
+            <div class="surface-layer" data-surface></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="contact-mark" data-logo-contact aria-hidden="true"></div>
+        <h2 class="contact-title">Have something<br />in mind?</h2>
+        <p class="contact-sub">Tell me about the product, the deadline and the budget. I reply within two working days.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary btn-lg" data-mailto href="#">Start a project</a>
+          <button class="btn btn-ghost btn-lg copy" type="button" data-copy>
+            <span data-email></span><span class="copy-icon" data-icon="copy"></span>
+          </button>
+          <span class="copy-status" role="status" aria-live="polite"></span>
+        </div>
+        <ul class="socials" data-socials></ul>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span>© 2026 Yohanes Alemu</span>
+      <a href="#top" data-top>Back to top</a>
+    </footer>
+
+    <div class="grain" aria-hidden="true"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
